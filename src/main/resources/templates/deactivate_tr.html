@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+    <title>TR deactivation</title>
+</head>
+<body>
+    <div>
+        <center>
+            <form method="POST" action=/search_tr padding=100px>
+                <table border= 1px>
+                    <tr>
+                        <td>
+                            <label for="identifier">Choose one identifier for search:</label>
+                            <select id="identifier" name="identifier">
+                                <option value="universe_id">universe_id</option>
+                                <option value="Company_id">Company_id</option>
+                                <option value="ric_ticker">ric_ticker</option>
+                            </select>
+                            <label for="search_value">Value:</label>
+                            <input type="text" id="search_value" name="search_value">
+                            <td>
+                            <button type="submit" value="Submit">Fetch records</button>
+                            </td>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+    <div>
+        <table border= 1p>
+            <tr>
+                <th>ric ticker</th>
+                <th>cortex ticker</th>
+                <th>company name</th>
+                <th>Company market cap</th>
+                <th>Country</th>
+                <th>Instrument type</th>
+                <th>exchange name</th>
+                <th>bw sectors</th>
+                <th>bw industry group</th>
+                <th>currency code</th>
+                <th>currency name</th>
+                <th>GICS Industry group </th>
+                <th>GICS sectors</th>
+                <th>market index</th>
+                <th>Sector code</th>
+                <th>Universe ID</th>
+                <th>Company ID</th>
+                <th>active flag</th>
+            </tr>
+                <tr>
+                    <td>ric_ticker</td>
+                    <td>cortex_ticker</td>
+                    <td>company_name</td>
+                    <td>company_market_cap</td>
+                    <td>country</td>
+                    <td>instrument_type</td>
+                    <td>exchange_name</td>
+                    <td>bw_sectors</td>
+                    <td>bw_industry_group</td>
+                    <td>currency_code</td>
+                    <td>currency_name</td>
+                    <td>gics_industry_group</td>
+                    <td>gics_sectors</td>
+                    <td>market_index</td>
+                    <td>sector_code</td>
+                    <td>universe_id</td>
+                    <td>company_id</td>
+                    <td>active_flag</td>
+                    <td><button type="submit" value="Submit">Deactivate</button></td>
+                </tr>
+                
+        </table>
+    </div>
+</body>

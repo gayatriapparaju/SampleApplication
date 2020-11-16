@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+      
+<head>
+    <title>TR deactivation</title>
+</head>
+<body>
+    <div>
+        <center>
+            <form method="GET" action=/records padding=100px>
+                <table border= 1px>
+                    <tr>
+                        <td>
+                            <label>Choose one identifier for search:</label>
+                            <select th:name="identifier">
+                                <option th:value="universeId" th:text = "universe_id"></option>
+                                <option th:value="companyId" th:text = "Company_id"></option>
+                                <option th:value="ricTicker" th:text ="ric_ticker" ></option>
+                            </select>
+                            <label for="search_value">Value:</label>
+                            <input type="text" id="search_value" th:name="search_value">
+                            <td>
+                            <button type="submit" value="Submit">Fetch records</button>
+                            </td>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+    
+    <div th:if="${not #lists.isEmpty(records)}">
+    
+    <table border= 1p>
+    <thead>
+            <tr>
+                <th>ric ticker</th>
+                <th>cortex ticker</th>
+                <th>company name</th>
+                <th>Company market cap</th>
+                <th>Country</th>
+                <th>Instrument type</th>
+                <th>exchange name</th>
+                <th>bw sectors</th>
+                <th>bw industry group</th>
+                <th>currency code</th>
+                <th>currency name</th>
+                <th>GICS Industry group </th>
+                <th>GICS sectors</th>
+                <th>market index</th>
+                <th>Sector code</th>
+                <th>Universe ID</th>
+                <th>Company ID</th>
+                <th>active flag</th>
+                <th>action</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            <tr th:each="i : ${records}">
+            
+            <td th:text= ${i.ricTicker}></td>
+            <td th:text= ${i.cortexTicker}></td>
+            <td th:text= ${i.companyName}></td>
+            <td th:text= ${i.companyMarketCap}></td>
+            <td th:text= ${i.country}></td>
+            <td th:text= ${i.instrumentType}></td>
+            <td th:text= ${i.exchangeName}></td>
+            <td th:text= ${i.bwSectors}></td>
+            <td th:text= ${i.bwIndustryGroup}></td>
+            <td th:text= ${i.currencyCode}></td>
+            <td th:text= ${i.currencyName}></td>
+             <td th:text= ${i.gicsIndstryGroup}></td>
+             <td th:text= ${i.marketIndex}></td>
+             <td th:text= ${i.gicsSectors}></td>
+             <td th:text= ${i.sectorCode}></td>
+             <td th:text= ${i.universeId}></td>
+              <form method="POST"  action="/disable" th:action= "@{/disable?companyId={companyId}&identifier={identifier}&search_value={search_value}(companyId= ${i.companyId},identifier=${identifier},search_value=${search_value})}"   padding=100px >
+             <td   type ="companyId" id="companyId" name="companyId" th:text= ${i.companyId}></td>
+             <td  th:text= ${i.activeFlag}></td>    
+                    
+             <td >
+             <button  type="submit" value="Submit">Deactivate</button>
+             </td>
+             </form>
+            </tr>
+            </tbody>
+            
+            </table>
+    </div>
+   
+</body>
